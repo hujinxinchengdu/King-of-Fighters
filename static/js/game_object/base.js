@@ -44,3 +44,7 @@ let GAME_OBJECT_FRAME = (timestamp) => {
 }
 
 requestAnimationFrame(GAME_OBJECT_FRAME);
+
+export {
+    GameObject
+}
