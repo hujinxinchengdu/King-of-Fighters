@@ -18,6 +18,8 @@ export class Player extends GameObject {
         this.speedx = 400;
         this.speedy = 1000;
 
+        this.gravity = 50;
+
         this.ctx = this.root.game_map.ctx;
 
     }
@@ -26,7 +28,21 @@ export class Player extends GameObject {
 
     }
 
+    move() {
+        this.vy += this.gravity;
+        this.x += this.vx * this.timedelta / 1000;
+        this.y += this.vy * this.timedelta / 1000;
+
+        if (this.y > 450) {
+            this.y = 450;
+            this.vy = 0;
+
+            if (this.status === 3) this.status = 0;
+        }
+    }
+
     update() {
+        this.move();
         this.render() ;
     }
 
